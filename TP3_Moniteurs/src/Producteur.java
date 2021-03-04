@@ -1,8 +1,11 @@
+import java.util.Scanner;
+
 
 public class Producteur extends Thread{
 
 		private BAL bal;
 		private String message;
+		Scanner sc = new Scanner(System.in);
 		
 		public Producteur (BAL c,String m) {
 			bal = c;
@@ -10,10 +13,14 @@ public class Producteur extends Thread{
 		}
 		
 		public void run() {
-			for (int i = 0; i<20; i++) {
-				message = "Ceci est le message" + i + "\n";
-				bal.setMail(message);
-			}
+			
+			do {
+				message = sc.nextLine();
+			} while(message != "q");
+//			for (int i = 0; i<20; i++) {
+//				message = "Ceci est le message" + i + "\n";
+//				bal.setMail(message);
+//			}
 		}
 	
 }
